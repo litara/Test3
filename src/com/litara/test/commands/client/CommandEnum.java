@@ -1,9 +1,9 @@
 package com.litara.test.commands.client;
 
-import com.litara.test.commands.ActionCommand;
-import com.litara.test.commands.LoginCommand;
-import com.litara.test.commands.LoginRegirect;
-import com.litara.test.commands.LogoutCommand;
+import com.litara.test.commands.factory.ActionCommand;
+import com.litara.test.commands.factory.LoginCommand;
+import com.litara.test.commands.factory.LoginRegirect;
+import com.litara.test.commands.factory.LogoutCommand;
 
 public enum CommandEnum {
 	LOGIN {

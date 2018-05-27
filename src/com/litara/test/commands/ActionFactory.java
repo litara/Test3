@@ -1,10 +1,10 @@
-package com.litara.test.commands.factory;
+package com.litara.test.commands;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.litara.test.commands.ActionCommand;
-import com.litara.test.commands.EmptyCommand;
 import com.litara.test.commands.client.CommandEnum;
+import com.litara.test.commands.factory.ActionCommand;
+import com.litara.test.commands.factory.EmptyCommand;
 import com.litara.test.resource.MessageManager;
 import com.litara.test.servlet.requestContent.SessionRequestContent;
 

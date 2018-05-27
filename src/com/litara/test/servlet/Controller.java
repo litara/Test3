@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.litara.test.commands.ActionCommand;
-import com.litara.test.commands.factory.ActionFactory;
+import com.litara.test.commands.ActionFactory;
+import com.litara.test.commands.factory.ActionCommand;
 import com.litara.test.resource.ConfigurationManager;
 import com.litara.test.resource.MessageManager;
 import com.litara.test.servlet.requestContent.SessionRequestContent;
