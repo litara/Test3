@@ -1,0 +1,84 @@
+package com.litara.test.servlet.requestContent;
+
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+public class SessionRequestContent {
+    private Map<String, Object> requestAttributes = new HashMap<>();
+    private Map<String, String[]> requestParameters = new HashMap<>();
+    private Map<String, Object> sessionAttributes = new HashMap<>();
+    private HttpServletRequest request;
+    private boolean sessionInvalidate;
+
+    public SessionRequestContent(HttpServletRequest request) {
+        this.request = request;
+        extractValues(request);
+    }
+
+    public void removeSessionAttribute(String attribute) {
+        sessionAttributes.remove(attribute);
+        request.getSession().removeAttribute(attribute);
+    }
+
+    public String getParameter(String parameterName){
+            return requestParameters.get(parameterName)[0];
+    }
+
+    public String[] getParameters(String parameterName) {
+            return requestParameters.get(parameterName);
+    }
+
+    public void setAttribute(String attributeName, Object attributeValue) {
+        requestAttributes.put(attributeName, attributeValue);
+    }
+
+    public void setSessionAttribute(String attributeName, Object attributeValue) {
+        sessionAttributes.put(attributeName, attributeValue);
+    }
+
+    public void insertValues(HttpServletRequest request) {
+        for (Map.Entry<String, Object> requestAttribute : requestAttributes.entrySet()) {
+            request.setAttribute(requestAttribute.getKey(), requestAttribute.getValue());
+        }
+        for (Map.Entry<String, Object> sessionAttribute : sessionAttributes.entrySet()) {
+            request.getSession().setAttribute(sessionAttribute.getKey(), sessionAttribute.getValue());
+        }
+        if(sessionInvalidate==true) {
+        	request.getSession().invalidate();
+        }
+    }
+
+    private void extractValues(HttpServletRequest request) {
+        requestParameters = request.getParameterMap();
+        extractRequestAttributes(request);
+        extractSessionAttributes(request);
+    }
+
+    private void extractRequestAttributes(HttpServletRequest request) {
+        Enumeration attributeNames = request.getAttributeNames();
+        while (attributeNames.hasMoreElements()) {
+            String name = (String) attributeNames.nextElement();
+            Object value = request.getAttribute(name);
+            requestAttributes.put(name, value);
+        }
+    }
+
+    private void extractSessionAttributes(HttpServletRequest request) {
+        Enumeration attributeNames = request.getSession().getAttributeNames();
+        while (attributeNames.hasMoreElements()) {
+            String name = (String) attributeNames.nextElement();
+            Object value = request.getSession().getAttribute(name);
+            sessionAttributes.put(name, value);
+        }
+    }
+    public void setSessionInvalidate(boolean sessionInvalidate) {
+    	this.sessionInvalidate=sessionInvalidate;
+    }
+    private boolean getSessionInvalidate() {
+    	return sessionInvalidate;
+    }
+
+}
