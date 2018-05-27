@@ -11,7 +11,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name="passenger")
-public class Passanger extends com.litara.test.entities.Entity{
+public class Passenger extends com.litara.test.entities.Entity{
 	@Id
 	@GeneratedValue(generator="increment")
 	@GenericGenerator(name="increment", strategy="increment")

@@ -6,11 +6,11 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
-import com.litara.test.entities.Passanger;
-public class PassengerDAO extends DAOFactory<Passanger>{
+import com.litara.test.entities.Passenger;
+public class PassengerDAO extends DAOFactory<Passenger>{
 	private SessionFactory sessionFactory;
 	@Override
-	public void create(Passanger entity) {
+	public void create(Passenger entity) {
 		StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();
 		try {
 			sessionFactory= new MetadataSources(registry).buildMetadata().buildSessionFactory();
@@ -24,17 +24,17 @@ public class PassengerDAO extends DAOFactory<Passanger>{
 		session.close();
 	}
 	@Override
-	public Passanger findById(int id) {
+	public Passenger findById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	@Override
-	public void update(Passanger entity) {
+	public void update(Passenger entity) {
 		// TODO Auto-generated method stub
 		
 	}
 	@Override
-	public void delete(Passanger entity) {
+	public void delete(Passenger entity) {
 		// TODO Auto-generated method stub
 		
 	}

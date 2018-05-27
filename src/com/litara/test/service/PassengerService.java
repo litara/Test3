@@ -1,31 +1,31 @@
 package com.litara.test.service;
 
 import com.litara.test.dao.PassengerDAO;
-import com.litara.test.entities.Passanger;
+import com.litara.test.entities.Passenger;
 
-public class PassangerService extends AbstractService<Passanger> {
+public class PassengerService extends AbstractService<Passenger> {
 
 	@Override
-	public void create(Passanger entity) {
+	public void create(Passenger entity) {
 		PassengerDAO passengerDAO = new PassengerDAO();
 		passengerDAO.create(entity);
 		
 	}
 
 	@Override
-	public Passanger findById(int id) {
+	public Passenger findById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void update(Passanger entity) {
+	public void update(Passenger entity) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void delete(Passanger entity) {
+	public void delete(Passenger entity) {
 		// TODO Auto-generated method stub
 		
 	}
