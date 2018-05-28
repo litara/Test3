@@ -24,9 +24,9 @@
 			<ul class="navbar-nav navbar-right">
 				<li class="nav-item">
 				<c:if test="${passenger!=null }">
-						<a class="nav-link btn btn-outline-success dropdown-toggle" data-toggle="dropdown" href="#">${passenger.getEmail()}</a>
-						<div class="dropdown-menu">
-							<a class="dropdown-item" href="controller?command=Logout">Выход</a>
+						<a class="nav-link btn mybtn dropdown-toggle bg-dark" data-toggle="dropdown" href="#">${passenger.getEmail()}</a>
+						<div class="dropdown-menu dropdown-menu-right mydropdown">
+							<a class="dropdown-item mydropdown-item" href="controller?command=Logout">Выход</a>
 						</div>
 					</c:if> 
 					<c:if test="${passenger==null}">
@@ -58,4 +58,9 @@
 		</div>
 	</div>
 	</c:if>
+	<div class="container">
+		<div class="myimage">
+			<h1>My First Bootstrap Page</h1>
+		</div>
+	</div>
 </body>
