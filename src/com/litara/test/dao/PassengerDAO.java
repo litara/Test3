@@ -1,5 +1,7 @@
 package com.litara.test.dao;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
@@ -38,7 +40,7 @@ public class PassengerDAO extends DAOFactory<Passenger>{
 		// TODO Auto-generated method stub
 		
 	}
-	public boolean findByEmailAndPassword(String email, String password) {
+	public boolean findByEmail(String email) {
 		StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();
 		try {
 			sessionFactory= new MetadataSources(registry).buildMetadata().buildSessionFactory();
@@ -47,11 +49,49 @@ public class PassengerDAO extends DAOFactory<Passenger>{
 		}
 		Session session=sessionFactory.openSession();
 		session.beginTransaction();
-		session.createQuery("from passenger where email="+email);
+		List results = session.createQuery(" from passenger where email=:email").setParameter("email", email).list();
+		if(results.isEmpty()) {
+			session.getTransaction().commit();
+			session.close();
+			return false;
+		}
 		session.getTransaction().commit();
 		session.close();
 		return true;
 	}
-
-	
+	public boolean findByEmailAndPassword(String email, String password) {
+		StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();
+		try {
+			sessionFactory= new MetadataSources(registry).buildMetadata().buildSessionFactory();
+		}catch(Exception e) {
+			StandardServiceRegistryBuilder.destroy(registry);
+			System.out.println(e);
+		}
+		Session session=sessionFactory.openSession();
+		session.beginTransaction();
+		String sql="from Passenger where email="+"'"+email+"'"+" and password="+"'"+password+"'";
+		List result = session.createQuery(sql).list();
+		if(result.isEmpty()) {
+			session.getTransaction().commit();
+			session.close();
+			return false;
+		}
+		session.getTransaction().commit();
+		session.close();
+		return true;
+	}
+	public Passenger findByEmailAndReturn(String email) {
+		StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();
+		try {
+			sessionFactory= new MetadataSources(registry).buildMetadata().buildSessionFactory();
+		}catch(Exception e) {
+			StandardServiceRegistryBuilder.destroy(registry);
+		}
+		Session session=sessionFactory.openSession();
+		session.beginTransaction();
+		List<Passenger> result = session.createQuery(" from Passenger where email=:email").setParameter("email", email).list();
+		session.getTransaction().commit();
+		session.close();
+		return result.get(0);
+	}
 }

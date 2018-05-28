@@ -20,13 +20,13 @@
   <div class="collapse navbar-collapse justify-content-end dropdown" id="collapsibleNavbar">
     <ul class="navbar-nav">
       <li class="nav-item btn-group">
-      	<c:if test="${not empty userLogin }">
-      		<a class="nav-link btn btn-outline-success dropdown-toggle" data-toggle="dropdown" href="#">${userLogin}</a>
+      	<c:if test="${passenger!=null }">
+      		<a class="nav-link btn btn-outline-success dropdown-toggle" data-toggle="dropdown" href="#">${passenger.getEmail()}</a>
       		<div class="dropdown-menu">
     			<a class="dropdown-item" href="controller?command=Logout">Выход</a>
   			</div>
       	</c:if> 
-      	<c:if test="${empty userLogin}">
+      	<c:if test="${passenger==null}">
       		<a class="nav-link btn btn-outline-danger" href="controller?command=LoginRedirect">Вход</a>
       	</c:if>
       </li>    

@@ -29,6 +29,18 @@ public class PassengerService extends AbstractService<Passenger> {
 		// TODO Auto-generated method stub
 		
 	}
+	public boolean isExist(String email) {
+		PassengerDAO passengerDAO=new PassengerDAO();
+		return passengerDAO.findByEmail(email);
+	}
+	public boolean isExist(String email, String password) {
+		PassengerDAO passengerDAO=new PassengerDAO();
+		return passengerDAO.findByEmailAndPassword(email, password);
+	}
+	public Passenger findByEmail(String email) {
+		PassengerDAO passengerDAO=new PassengerDAO();
+		return passengerDAO.findByEmailAndReturn(email);
+	}
 	
 }
 

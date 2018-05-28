@@ -28,7 +28,7 @@
         <!-- Drop and re-create the database schema on startup -->
         <property name="hbm2ddl.auto">update</property>
 
-        <mapping class="com.litara.test.entities.Passanger"/>
+        <mapping class="com.litara.test.entities.Passenger"/>
 
     </session-factory>
 
