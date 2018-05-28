@@ -4,38 +4,58 @@
 <!DOCTYPE html>
 <head>
 <title>Main page</title>
+
 <script src="bootstrap_js/jquery-3.3.1.min.js" defer></script>
 <link rel="stylesheet" href="bootstrap_css/bootstrap.min.css">
 <script src="bootstrap_js/bootstrap.bundle.min.js" defer></script>
+<link rel="stylesheet" href="css/main.css">
 </head>
-<body>
+<body class="bodyheight">
 
+<div class="container">
 
-
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark container-fluid">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse justify-content-end dropdown" id="collapsibleNavbar">
-    <ul class="navbar-nav">
-      <li class="nav-item btn-group">
-      	<c:if test="${passenger!=null }">
-      		<a class="nav-link btn btn-outline-success dropdown-toggle" data-toggle="dropdown" href="#">${passenger.getEmail()}</a>
-      		<div class="dropdown-menu">
-    			<a class="dropdown-item" href="controller?command=Logout">Выход</a>
-  			</div>
-      	</c:if> 
-      	<c:if test="${passenger==null}">
-      		<a class="nav-link btn btn-outline-danger" href="controller?command=LoginRedirect">Вход</a>
-      	</c:if>
-      </li>    
-    </ul>
-  </div>  
-</nav>
-
-<div class="jumbotron text-center" style="margin-bottom:0">
-  <h1>My First Bootstrap 4 Page</h1>
-  <p>Resize this responsive page to see the effect!</p> 
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark mynavbar" style="padding: 0;" role="navigation">
+		<div class="container-fluid">
+		<a class="navbar-brand" href="#">Navbar</a>
+		<button class="navbar-toggler" style="border: 0;" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse justify-content-end dropdown" id="collapsibleNavbar">
+			<ul class="navbar-nav navbar-right">
+				<li class="nav-item">
+				<c:if test="${passenger!=null }">
+						<a class="nav-link btn btn-outline-success dropdown-toggle" data-toggle="dropdown" href="#">${passenger.getEmail()}</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="controller?command=Logout">Выход</a>
+						</div>
+					</c:if> 
+					<c:if test="${passenger==null}">
+						<div class="dropdown">
+							<button type="button" class="btn mybtn dropdown-toggle bg-dark text-light" data-toggle="dropdown">
+    							Войти
+  							</button>
+  							<div class="dropdown-menu dropdown-menu-right mydropdown">
+    							<form name=loginForm method="POST" action="controller">
+    								<input type="hidden" name="command" value="login">
+    								<input type="email" id="inputEmail" name="email" class="form-control myinput" placeholder="Email address">
+    								<input type="password" name="password" class="form-control myinput" placeholder="Password">
+    								<center><input type="submit" class="btn btn-primary" value="Войти"></center>
+    							</form>
+  							</div>
+						</div>
+					</c:if>
+				</li>
+			</ul>
+		</div>
+	</div>
+	</nav>
 </div>
+	<c:if test="${not empty errorMessage}">
+	<div class="container">
+		<div class="alert alert-danger allert-dismissible errorMessages">
+			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  			<strong>Danger!</strong> ${errorMessage}.
+		</div>
+	</div>
+	</c:if>
 </body>

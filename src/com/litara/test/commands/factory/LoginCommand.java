@@ -24,7 +24,8 @@ public class LoginCommand implements ActionCommand {
 			// определение пути к main.jsp
 			page = ConfigurationManager.getProperty("path.page.main");
 		} else {
-			page = ConfigurationManager.getProperty("path.page.login");
+			request.setAttribute("errorMessage", MessageManager.getProperty("message.loginerror"));
+			page = ConfigurationManager.getProperty("path.page.main");
 		}
 		return page;
 	}
