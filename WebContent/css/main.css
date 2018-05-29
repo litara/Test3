@@ -3,6 +3,7 @@
 	line-height: 0;
 	background-image: url("../img/train.jpg");
 }
+
 .mybtn{
     border-radius: 0;
 }
@@ -33,14 +34,19 @@
 	border-top-left-radius: 0;
 	border-top-right-radius:0;
 	background-image: url("../img/train2.jpg");
+	padding: 100px;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
 }
 .mynavbar{
 	margin-top: 25px;
 	border-radius: 15px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
 }
 .errorMessages{
 	margin: 25.5px;
-	border-radius: 15px;
+	border-radius: 0px;
 	margin: 0px;
 	padding: 25px;
 	line-height: 0px;

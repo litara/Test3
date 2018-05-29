@@ -39,7 +39,9 @@
     								<input type="hidden" name="command" value="login">
     								<input type="email" id="inputEmail" name="email" class="form-control myinput" placeholder="Email address">
     								<input type="password" name="password" class="form-control myinput" placeholder="Password">
-    								<center><input type="submit" class="btn btn-primary" value="Войти"></center>
+    								<input type="submit" class="btn btn-primary" value="Войти">
+    								<h6>OR</h6>
+    								<a href="controller?command=registerRedirect" class="btn btn-primary">Зарегистрироваться</a>
     							</form>
   							</div>
 						</div>
@@ -59,8 +61,8 @@
 	</div>
 	</c:if>
 	<div class="container">
-		<div class="myimage">
+	<div class="myimage">
 			<h1>My First Bootstrap Page</h1>
-		</div>
+	</div>
 	</div>
 </body>

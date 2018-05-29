@@ -49,7 +49,7 @@ public class PassengerDAO extends DAOFactory<Passenger>{
 		}
 		Session session=sessionFactory.openSession();
 		session.beginTransaction();
-		List results = session.createQuery(" from passenger where email=:email").setParameter("email", email).list();
+		List results = session.createQuery(" from Passenger where email=:email").setParameter("email", email).list();
 		if(results.isEmpty()) {
 			session.getTransaction().commit();
 			session.close();
