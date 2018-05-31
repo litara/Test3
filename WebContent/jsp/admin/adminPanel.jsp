@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,5 +13,44 @@
 </head>
 <body class="body">
 	<c:import url="/jsp/navbar.jsp"></c:import>
+	<div class="container">
+		<div class="row">
+			<div class="col-3 navigation container-fluid">
+				<a class="mybtn btn-dark btn elementPanel" href="admin?do=passenger">Пассажиры</a>
+				<button type="button" class="btn-dark btn elementPanel mybtn ">Поезда</button>
+			</div>
+			<div class="col-9 editing">
+				<c:if test="${editPassenger==null and editTrains==null }">
+					<h6>Поздравляю, вы находитесь в панеле админа.</h6>
+				</c:if>
+				<c:if test="${ editPassenger==true }">
+					<div class="container">
+						<h2>Basic Table</h2>
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Email</th>
+									<th>Password</th>
+									<th>Name</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach items="${tablePassengers}" var="i">
+									<tr>
+										<td>${i.getEmail()}</td>
+										<td>${i.getPassword()}</td>
+										<td>${i.getName()}</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</div>
+				</c:if>
+				<c:if test="${editTrains==true }">
+
+				</c:if>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

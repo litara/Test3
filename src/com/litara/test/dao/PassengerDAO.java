@@ -94,4 +94,18 @@ public class PassengerDAO extends DAOFactory<Passenger>{
 		session.close();
 		return result.get(0);
 	}
+	public List<Passenger> output(){
+		StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();
+		try {
+			sessionFactory= new MetadataSources(registry).buildMetadata().buildSessionFactory();
+		}catch(Exception e) {
+			StandardServiceRegistryBuilder.destroy(registry);
+		}
+		Session session=sessionFactory.openSession();
+		session.beginTransaction();
+		List<Passenger> result = session.createQuery("from Passenger").list();
+		session.getTransaction().commit();
+		session.close();
+		return result;
+	}
 }

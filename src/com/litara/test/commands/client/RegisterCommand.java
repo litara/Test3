@@ -18,12 +18,12 @@ public class RegisterCommand implements ActionCommand{
 	@Override
 	public String execute(SessionRequestContent request) {
 		String page=null;
-		String email=request.getParameter(PARAM_NAME_EMAIL);
-		String pass=request.getParameter(PARAM_NAME_PASSWORD);
-		String name=request.getParameter(PARAM_NAME_NAME);
-		String surname=request.getParameter(PARAM_NAME_SURNAME);
-		String middleName=request.getParameter(PARAM_NAME_MIDDLE_NAME);
-		String passwordConfirm=request.getParameter(PARAM_NAME_CONFIRM_PASSWORD);
+		String email=request.getParameter(PARAM_NAME_EMAIL).toString();
+		String pass=request.getParameter(PARAM_NAME_PASSWORD).toString();
+		String name=request.getParameter(PARAM_NAME_NAME).toString();
+		String surname=request.getParameter(PARAM_NAME_SURNAME).toString();
+		String middleName=request.getParameter(PARAM_NAME_MIDDLE_NAME).toString();
+		String passwordConfirm=request.getParameter(PARAM_NAME_CONFIRM_PASSWORD).toString();
 		Passenger passenger=new Passenger();
 		passenger.setEmail(email);
 		passenger.setPassword(pass);

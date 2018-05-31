@@ -7,6 +7,11 @@ public enum AdminCommandEnum {
 		{
 			this.command = new AdminPanelRedirectCommand();
 		}
+	},
+	PASSENGER{
+		{
+			this.command=new EditPassenger();
+		}
 	};
 	ActionCommand command;
 	public ActionCommand getCurrentCommand() {

@@ -16,8 +16,8 @@ public class LoginCommand implements ActionCommand {
 	public String execute(SessionRequestContent request) {
 		String page = null;
 		// извлечение из запроса логина и пароля
-		String email = request.getParameter(PARAM_NAME_EMAIL);
-		String pass = request.getParameter(PARAM_NAME_PASSWORD);
+		String email = request.getParameter(PARAM_NAME_EMAIL).toString();
+		String pass = request.getParameter(PARAM_NAME_PASSWORD).toString();
 		// проверка логина и пароля
 		Passenger passenger = LoginLogic.checkLogin(email, pass);
 		if (passenger!=null) {

@@ -1,5 +1,7 @@
 package com.litara.test.service;
 
+import java.util.List;
+
 import com.litara.test.dao.PassengerDAO;
 import com.litara.test.entities.Passenger;
 
@@ -40,6 +42,10 @@ public class PassengerService extends AbstractService<Passenger> {
 	public Passenger findByEmail(String email) {
 		PassengerDAO passengerDAO=new PassengerDAO();
 		return passengerDAO.findByEmailAndReturn(email);
+	}
+	public List<Passenger> outputAll(){
+		PassengerDAO passengerDAO=new PassengerDAO();
+		return passengerDAO.output();
 	}
 	
 }
