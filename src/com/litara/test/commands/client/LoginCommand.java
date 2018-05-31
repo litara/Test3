@@ -1,7 +1,8 @@
-package com.litara.test.commands.factory;
+package com.litara.test.commands.client;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.litara.test.commands.ActionCommand;
 import com.litara.test.entities.Passenger;
 import com.litara.test.logic.LoginLogic;
 import com.litara.test.resource.ConfigurationManager;

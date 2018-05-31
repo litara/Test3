@@ -14,7 +14,7 @@
 <div class="container">
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark mynavbar" style="padding: 0;" role="navigation">
 		<div class="container-fluid">
-		<a class="navbar-brand" href="#">Navbar</a>
+		<a class="navbar-brand" href="controller?command=main">Navbar</a>
 		</div>
 	</nav>
 	</div>

@@ -1,29 +1,26 @@
-package com.litara.test.commands;
+package com.litara.test.commands.admin;
 
-import javax.servlet.http.HttpServletRequest;
-
+import com.litara.test.commands.ActionCommand;
 import com.litara.test.commands.client.CommandEnum;
-import com.litara.test.commands.factory.ActionCommand;
 import com.litara.test.commands.factory.EmptyCommand;
 import com.litara.test.resource.MessageManager;
 import com.litara.test.servlet.requestContent.SessionRequestContent;
 
-public class ActionFactory {
+public class AdminFactory {
 	public ActionCommand defineCommand(SessionRequestContent request) {
 		ActionCommand current = new EmptyCommand();
 		// извлечение имени команды из запроса
-		String action = request.getParameter("command");
+		String action = request.getParameter("do");
 		if (action == null || action.isEmpty()) {
 			// если команда не задана в текущем запросе
 			return current;
 		}
 		// получение объекта, соответствующего команде
 		try {
-			CommandEnum currentEnum = CommandEnum.valueOf(action.toUpperCase());
+			AdminCommandEnum currentEnum = AdminCommandEnum.valueOf(action.toUpperCase());
 			current = currentEnum.getCurrentCommand();
 		} catch (IllegalArgumentException e) {
-			request.setAttribute("wrongAction", action
-					+ MessageManager.getProperty("message.wrongaction"));
+			System.out.println(e.toString());
 		}
 		return current;
 	}

@@ -1,5 +1,6 @@
-package com.litara.test.commands.factory;
+package com.litara.test.commands.client;
 
+import com.litara.test.commands.ActionCommand;
 import com.litara.test.resource.ConfigurationManager;
 import com.litara.test.servlet.requestContent.SessionRequestContent;
 

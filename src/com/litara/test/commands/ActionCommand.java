@@ -1,4 +1,4 @@
-package com.litara.test.commands.factory;
+package com.litara.test.commands;
 
 import javax.servlet.http.HttpServletRequest;
 
