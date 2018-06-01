@@ -16,19 +16,21 @@ public class PassengerService extends AbstractService<Passenger> {
 
 	@Override
 	public Passenger findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		PassengerDAO passengerDAO = new PassengerDAO();
+		Passenger passenger = passengerDAO.findById(id);
+		return passenger;
 	}
 
 	@Override
 	public void update(Passenger entity) {
-		// TODO Auto-generated method stub
-		
+		PassengerDAO passengerDAO = new PassengerDAO();
+		passengerDAO.update(entity);
 	}
 
 	@Override
 	public void delete(Passenger entity) {
-		// TODO Auto-generated method stub
+		PassengerDAO passengerDAO=new PassengerDAO();
+		passengerDAO.delete(entity);
 		
 	}
 	public boolean isExist(String email) {

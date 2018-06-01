@@ -24,30 +24,16 @@
 					<h6>Поздравляю, вы находитесь в панеле админа.</h6>
 				</c:if>
 				<c:if test="${ editPassenger==true }">
-					<div class="container">
-						<h2>Basic Table</h2>
-						<table class="table">
-							<thead>
-								<tr>
-									<th>Email</th>
-									<th>Password</th>
-									<th>Name</th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach items="${tablePassengers}" var="i">
-									<tr>
-										<td>${i.getEmail()}</td>
-										<td>${i.getPassword()}</td>
-										<td>${i.getName()}</td>
-									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
-					</div>
+					<c:import url="/jsp/admin/passenger/tablePassenger.jsp"></c:import>
+					<c:if test="${update==true }">
+						<c:import url="/jsp/admin/passenger/updatePassenger.jsp"></c:import>
+					</c:if>
+					<c:import url="/jsp/admin/passenger/createPassenger.jsp"></c:import>
 				</c:if>
 				<c:if test="${editTrains==true }">
-
+					<c:import url="/jsp/admin/station/tableStation">
+						
+					</c:import>
 				</c:if>
 			</div>
 		</div>

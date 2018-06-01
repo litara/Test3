@@ -18,7 +18,7 @@ import com.litara.test.servlet.requestContent.SessionRequestContent;
 /**
  * Servlet implementation class Admin
  */
-@WebServlet("/admin")
+@WebServlet(name="admin",urlPatterns= {"/admin"})
 public class Admin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

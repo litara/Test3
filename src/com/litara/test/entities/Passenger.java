@@ -1,7 +1,6 @@
 package com.litara.test.entities;
 
-import javax.annotation.Generated;
-import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -12,6 +11,8 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity
 @Table(name="passenger")
 public class Passenger extends com.litara.test.entities.Entity{
+
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(generator="increment")
 	@GenericGenerator(name="increment", strategy="increment")

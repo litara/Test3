@@ -6,6 +6,9 @@
 .navigation{
 	padding-right: 0px;
 }
+.text{
+	border-radius: 5px;
+}
 .editing{
 	padding-left:0px;
 }

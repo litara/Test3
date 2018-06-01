@@ -27,18 +27,52 @@ public class PassengerDAO extends DAOFactory<Passenger>{
 	}
 	@Override
 	public Passenger findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();
+		try {
+			sessionFactory= new MetadataSources(registry).buildMetadata().buildSessionFactory();
+		}catch(Exception e) {
+			StandardServiceRegistryBuilder.destroy(registry);
+		}
+		Session session=sessionFactory.openSession();
+		session.beginTransaction();
+		List<Passenger> results = session.createQuery(" from Passenger where id=:id").setParameter("id", id).list();
+		if(results.isEmpty()) {
+			session.getTransaction().commit();
+			session.close();
+			return null;
+		}
+		session.getTransaction().commit();
+		session.close();
+		return results.get(0);
 	}
 	@Override
 	public void update(Passenger entity) {
-		// TODO Auto-generated method stub
+		StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();
+		try {
+			sessionFactory= new MetadataSources(registry).buildMetadata().buildSessionFactory();
+		}catch(Exception e) {
+			StandardServiceRegistryBuilder.destroy(registry);
+		}
+		Session session=sessionFactory.openSession();
+		session.beginTransaction();
+		session.update(entity);
+		session.getTransaction().commit();
+		session.close();
 		
 	}
 	@Override
 	public void delete(Passenger entity) {
-		// TODO Auto-generated method stub
-		
+		StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();
+		try {
+			sessionFactory= new MetadataSources(registry).buildMetadata().buildSessionFactory();
+		}catch(Exception e) {
+			StandardServiceRegistryBuilder.destroy(registry);
+		}
+		Session session=sessionFactory.openSession();
+		session.beginTransaction();
+		session.delete(entity);
+		session.getTransaction().commit();
+		session.close();
 	}
 	public boolean findByEmail(String email) {
 		StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();

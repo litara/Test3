@@ -12,6 +12,26 @@ public enum AdminCommandEnum {
 		{
 			this.command=new EditPassenger();
 		}
+	},
+	DEL{
+		{
+			this.command=new DeletePassenger();
+		}
+	},
+	CREATE{
+		{
+			this.command=new CreatePassenger();
+		}
+	},
+	UPDATE{
+		{
+			this.command=new UpdatePassenger();
+		}
+	},
+	DOUPDATE{
+		{
+			this.command=new DoUpdatePassenger();
+		}
 	};
 	ActionCommand command;
 	public ActionCommand getCurrentCommand() {
